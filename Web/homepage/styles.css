@@ -1,0 +1,30 @@
+/* Fixing the background of the navbar class */
+.bg-light {
+    background-color: #f1f1f2 !important;
+}
+
+/* Change the font size of the p tag */
+p {
+    font-size: 0.875rem;
+}
+
+/* Changing the background and border of the last card through a pseudo selector */
+section .col-sm-4:last-of-type .card {
+    border-color: #007bff;
+    background: #f8f8fa;
+}
+
+/* Changing the lead p colour on the homepage through an ID */
+#homepage-lead {
+    color: red;
+}
+
+/* Giving every item in this row some more margin above using the child and universal selectors */
+section .row > * {
+    margin-top: 40px;
+}
+
+/* Giving subsequent p tags a bit more margin above them using an adjacent sibling selector */
+p + p {
+    margin-top: 30px;
+}

@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Transactions
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>TOTAL</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td colspan="4"></td>
+                <td>{{ "${:,.2f}".format(grand_total) }}</td>
+            </tr>
+        </tfoot>
+        <tbody>
+            {% for key, value in stocks.items() %}
+                <tr>
+                    <td>{{ key|upper }}</td>
+                    <td>{{ value["name"] }}</td>
+                    <td>{{ value["shares"] }}</td>
+                    <td>{{ "${:,.2f}".format(value["current_price"]) }}</td>
+                    <td>{{ "${:,.2f}".format(value["current_price"] * value["shares"]) }}</td>
+                </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="4">CASH</td>
+                <td>{{ "${:,.2f}".format(cash) }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+{% endblock %}
